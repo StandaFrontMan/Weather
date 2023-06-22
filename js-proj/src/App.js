@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux'
-import { cityNameReducer } from './store/weatherSlice';
+import { cityNameReducer, weatherDataFetch } from './store/weatherSlice';
 
 function App() {
 
   const [cityName, setCityName] = useState('')
   const dispatch = useDispatch();
+
 
   return (
     <div className="App">
@@ -18,7 +19,7 @@ function App() {
           onChange={(e) => setCityName(e.target.value)} // work
         />
         <button
-          onClick={() => dispatch(cityNameReducer(cityName))} // work
+          onClick={() => dispatch(weatherDataFetch(cityName))} // work
         >Search</button>
       </div>
 
