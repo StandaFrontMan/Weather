@@ -3,12 +3,13 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { cityNameReducer, weatherDataFetch } from './store/weatherSlice';
 import InputField from './components/InputField';
+import MainInfoComponent from './components/MainInfoComponent';
 
 function App() {
   const [cityName, setCityName] = useState('');
   const dispatch = useDispatch();
 
-  const { city, status, error } = useSelector(state => state.weather);
+  const { status } = useSelector(state => state.weather);
 
   useEffect(() => {  // стираю данные о погоде при изменении значения cityName
     if (cityName === '') {
@@ -30,21 +31,7 @@ function App() {
         handleSearch={handleSearch}
       />
 
-      <div className='info'>
-        {status === 'resolved' && city && city.main && city.weather && (  
-          <div className='info'>
-            <h2>Current Weather in {city.name}</h2>
-            <div className='forecast-container'>
-              <div className='temp-container'>
-                <div className='curr-temp'>{Math.round(city.main.temp)}°C</div>
-                <div className='feels-like-temp'>Feels like {Math.round(city.main.feels_like)}°C</div>
-                <div className='temp-discription'>{city.weather[0].main}</div>
-              </div>
-            </div>
-          </div>
-        )}
-        {status === 'rejected' && <h2>{error}</h2>}
-      </div>
+      <MainInfoComponent />
 
       {status === 'loading' && <h2>Loading...</h2>}
     </div>
