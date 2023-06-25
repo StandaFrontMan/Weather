@@ -24,7 +24,7 @@ export const weatherDataFetch = createAsyncThunk(
 const weatherSlice = createSlice({
     name: 'weather',
     initialState: {
-        city: '',
+        city: [],
 
         status: null,
         error: null
@@ -42,7 +42,7 @@ const weatherSlice = createSlice({
         },
         [weatherDataFetch.fulfilled]: (state, action) => {
             state.status = 'resolved';
-            console.log(action.payload);
+            state.city = action.payload
         },
         [weatherDataFetch.rejected]: (state, action) => {
             state.status = 'rejected';
