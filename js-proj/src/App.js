@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { cityNameReducer, weatherDataFetch } from './store/weatherSlice';
+import InputField from './components/InputField';
 
 function App() {
   const [cityName, setCityName] = useState('');
@@ -23,18 +24,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className='input_area'>
-        <input
-          type='text'
-          placeholder='Enter City name'
-          value={cityName}
-          onChange={(e) => setCityName(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
+      <InputField
+        cityName={cityName}
+        setCityName={setCityName}
+        handleSearch={handleSearch}
+      />
 
       <div className='info'>
-        {status === 'resolved' && city && city.main && city.weather && (
+        {status === 'resolved' && city && city.main && city.weather && (  
           <div className='info'>
             <h2>Current Weather in {city.name}</h2>
             <div className='forecast-container'>
