@@ -3,13 +3,15 @@ body {
 } 
 
 .App {
-  border: 5px solid;
+  border: 5px solid #8a9ebb;
+  border-radius: 10px;
   width: 400px;
   height: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: #8a9ebb;
 }
 
 .input-area {
@@ -44,6 +46,39 @@ body {
   font-size: 16px;
 }
 
+.main-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-header {
+  font-weight: 600;
+  background-clip: text;
+}
+
+.temp-container {
+  display: flex;
+  align-items: center;
+}
+
+.curr-temp {
+  font-size: 40px; /* Размер шрифта может быть изменен по вашему усмотрению */
+  margin-right: 10px;
+}
+
+.minor-temp-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; /* Расстояние между блоками curr-temp и minor-temp-info */
+}
+
+.feels-like-temp,
+.temp-discription {
+  align-self: flex-start; /* Выравниваем по верхнему краю */
+  font-size: 20px;
+}
 
 
 
