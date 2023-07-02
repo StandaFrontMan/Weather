@@ -8,8 +8,7 @@ export const weatherDataFetch = createAsyncThunk(
             const response = await fetch(`${weatherAPI.base}${cityName}&appid=${weatherAPI.key}&units=metric`)
 
             if (!response.ok) {
-                throw new Error('Server error ...')
-                
+                throw new Error('Server Error ...')
             }
 
             const data = await response.json();

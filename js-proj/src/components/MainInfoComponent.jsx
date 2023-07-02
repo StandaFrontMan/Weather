@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import FetchError from './errors/FetchError'
 
 const MainInfoComponent = () => {
 
-    const { city, status, error } = useSelector(state => state.weather)
+    const { city, status } = useSelector(state => state.weather)
 
   return (
     <div className='main-info-block'>
@@ -21,7 +22,7 @@ const MainInfoComponent = () => {
             </div>
           </div>
         )}
-        {status === 'rejected' && <h2>{error}</h2>}
+        {status === 'rejected' && <FetchError />}
     </div>
   )
 }
