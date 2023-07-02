@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cityNameReducer, weatherDataFetch } from './store/weatherSlice';
 import InputField from './components/InputField';
 import MainInfoComponent from './components/MainInfoComponent';
+import Loading from './components/loader/Loading';
 
 function App() {
   const [cityName, setCityName] = useState('');
@@ -33,7 +34,7 @@ function App() {
 
       <MainInfoComponent />
 
-      {status === 'loading' && <h2>Loading...</h2>}
+      {status === 'loading' && <Loading />}
     </div>
   );
 }
